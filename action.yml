@@ -1,0 +1,35 @@
+name: 'cache to S3'
+description: 'Cache dependencies and build outputs to S3'
+inputs:
+  path:
+    description: 'A list of files, directories, and wildcard patterns to cache and restore'
+    required: true
+  key:
+    description: 'An explicit key for restoring and saving the cache'
+    required: true
+  restore-keys:
+    description: 'An ordered list of keys to use for restoring the cache if no cache hit occurred for key'
+    required: false
+  aws-s3-bucket:
+    description: 'An AWS S3 bucket to save cache'
+    required: true
+  aws-access-key-id:
+    description: 'An AWS access key id to access the bucket'
+    required: true
+  aws-secret-access-key:
+    description: 'An AWS secret access key to access the bucket'
+    required: true
+  aws-region:
+    description: 'An AWS region where the bucket is located'
+    required: true
+outputs:
+  cache-hit:
+    description: 'A boolean value to indicate an exact match was found for the primary key'
+runs:
+  using: 'node12'
+  main: 'dist/restore/index.js'
+  post: 'dist/save/index.js'
+  post-if: 'success()'
+branding:
+  icon: 'archive'
+  color: 'gray-dark'

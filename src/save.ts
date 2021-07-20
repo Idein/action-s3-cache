@@ -64,7 +64,7 @@ async function run(): Promise<void> {
             });
             s3.upload(
                 {
-                    Body: fs.readFileSync(fileName),
+                    Body: fs.createReadStream(fileName),
                     Bucket: core.getInput(Inputs.AWSS3Bucket, {
                         required: true
                     }),

@@ -48,17 +48,22 @@ async function run(): Promise<void> {
             for (const key of cacheKeys) {
                 const fileName = key + ".tar.gz";
                 try {
-                    const obj = await s3
-                        .getObject({
-                            Bucket: core.getInput(Inputs.AWSS3Bucket, {
-                                required: true
-                            }),
-                            Key: fileName
-                        })
-                        .promise();
+                    await new Promise((resolve, reject) => {
+                        const src = s3
+                            .getObject({
+                                Bucket: core.getInput(Inputs.AWSS3Bucket, {
+                                    required: true
+                                }),
+                                Key: fileName
+                            })
+                            .createReadStream();
+                        const dest = fs.createWriteStream(fileName);
+                        src.on("error", reject);
+                        dest.on("error", reject);
+                        dest.on("close", resolve);
+                        src.pipe(dest);
+                    });
 
-                    console.log(`Found: ${key}`);
-                    fs.writeFileSync(fileName, obj.Body);
                     await tar.extract({
                         file: fileName
                     });

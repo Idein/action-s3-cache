@@ -15,7 +15,9 @@ async function run(): Promise<void> {
 
         if (!utils.isValidEvent()) {
             utils.logWarning(
-                `Event Validation Error: The event type ${process.env[Events.Key]} is not supported because it's not tied to a branch or tag ref.`
+                `Event Validation Error: The event type ${
+                    process.env[Events.Key]
+                } is not supported because it's not tied to a branch or tag ref.`
             );
             return;
         }

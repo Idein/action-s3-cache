@@ -64,10 +64,10 @@ async function run(): Promise<void> {
                         src.pipe(dest);
                     });
 
-		    core.info(`Unzipping the tar file.`);
+                    core.info(`Unzipping the tar file.`);
                     await tar.extract({
                         file: fileName,
-                        preservePaths: true,
+                        preservePaths: true
                     });
                     fs.unlinkSync(fileName);
 

@@ -65,7 +65,8 @@ async function run(): Promise<void> {
                     });
 
                     await tar.extract({
-                        file: fileName
+                        file: fileName,
+                        preservePaths: true,
                     });
                     fs.unlinkSync(fileName);
 

@@ -47,7 +47,8 @@ async function run(): Promise<void> {
             await tar.create(
                 {
                     gzip: true,
-                    file: fileName
+                    file: fileName,
+		    preservePaths: true,
                 },
                 cachePaths
             );

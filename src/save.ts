@@ -44,6 +44,7 @@ async function run(): Promise<void> {
 
         try {
             const fileName = primaryKey + ".tar.gz";
+	    core.info(`Creating the tar file.`);
             await tar.create(
                 {
                     gzip: true,

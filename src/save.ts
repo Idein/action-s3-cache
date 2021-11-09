@@ -70,7 +70,10 @@ async function run(): Promise<void> {
                     Bucket: core.getInput(Inputs.AWSS3Bucket, {
                         required: true
                     }),
-                    Key: fileName
+                    Key: fileName,
+                    StorageClass: core.getInput(Inputs.AWSS3StorageClass, {
+                        required: true
+                    })
                 },
                 (err, data) => {
                     if (err) {

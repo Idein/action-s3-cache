@@ -6,7 +6,7 @@ export enum Inputs {
     AWSAccessKeyId = "aws-access-key-id",
     AWSSecretAccessKey = "aws-secret-access-key",
     AWSRegion = "aws-region",
-    AWSS3StorageClass = "s3-bucket-storage-class"
+    AWSS3StorageClass = "aws-s3-storage-class"
 }
 
 export enum Outputs {

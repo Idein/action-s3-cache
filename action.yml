@@ -22,6 +22,9 @@ inputs:
   aws-region:
     description: 'An AWS region where the bucket is located'
     required: true
+  aws-s3-storage-class:
+    description: 'S3 storage class'
+    required: true
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'

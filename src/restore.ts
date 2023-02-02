@@ -90,11 +90,11 @@ async function run(): Promise<void> {
             utils.setCacheHitOutput(isExactKeyMatch);
 
             core.info(`Cache restored from key: ${cacheKey}`);
-        } catch (error) {
+        } catch (error: any) {
             utils.logWarning(error.message);
             utils.setCacheHitOutput(false);
         }
-    } catch (error) {
+    } catch (error: any) {
         core.setFailed(error.message);
     }
 }

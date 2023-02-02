@@ -78,10 +78,10 @@ async function run(): Promise<void> {
                     }
                 }
             );
-        } catch (error) {
+        } catch (error: any) {
             utils.logWarning(error.message);
         }
-    } catch (error) {
+    } catch (error: any) {
         utils.logWarning(error.message);
     }
 }

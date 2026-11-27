@@ -6069,6 +6069,7 @@ var Inputs;
     Inputs["AWSS3Bucket"] = "aws-s3-bucket";
     Inputs["AWSAccessKeyId"] = "aws-access-key-id";
     Inputs["AWSSecretAccessKey"] = "aws-secret-access-key";
+    Inputs["AWSSessionToken"] = "aws-session-token";
     Inputs["AWSRegion"] = "aws-region";
 })(Inputs = exports.Inputs || (exports.Inputs = {}));
 var Outputs;
@@ -44010,6 +44011,7 @@ function run() {
                     secretAccessKey: core.getInput(constants_1.Inputs.AWSSecretAccessKey, {
                         required: true
                     }),
+                    sessionToken: core.getInput(constants_1.Inputs.AWSSessionToken) || undefined,
                     region: core.getInput(constants_1.Inputs.AWSRegion, {
                         required: true
                     })

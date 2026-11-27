@@ -6,7 +6,7 @@ This action is a mod of [actions/cache](https://github.com/marketplace/actions/c
 ## Prerequisites
 
 - A S3 bucket
-- AWS Access and Secret Keys to access the S3 bucket
+- AWS credentials with read and write access to the S3 bucket
 
 ## Usage
 
@@ -26,3 +26,9 @@ To restore cache if it exists, do
 ```
 
 Saving cache is automatically executed as a job postprocess.
+
+For temporary AWS credentials, pass the session token in `aws-session-token`
+along with the access key ID and secret access key. For example, with
+`aws-actions/configure-aws-credentials` and `output-credentials: true`, pass
+`steps.<step-id>.outputs.aws-session-token` to the cache action. The action uses
+these inputs both to restore the cache and to save it at the end of the job.

@@ -37,6 +37,8 @@ async function run(): Promise<void> {
                 secretAccessKey: core.getInput(Inputs.AWSSecretAccessKey, {
                     required: true
                 }),
+                sessionToken:
+                    core.getInput(Inputs.AWSSessionToken) || undefined,
                 region: core.getInput(Inputs.AWSRegion, {
                     required: true
                 })

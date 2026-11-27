@@ -5,6 +5,7 @@ export enum Inputs {
     AWSS3Bucket = "aws-s3-bucket",
     AWSAccessKeyId = "aws-access-key-id",
     AWSSecretAccessKey = "aws-secret-access-key",
+    AWSSessionToken = "aws-session-token",
     AWSRegion = "aws-region"
 }
 
